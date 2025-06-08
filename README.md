@@ -5,46 +5,51 @@
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live-success?style=for-the-badge)](https://mat-calculator-app.vercel.app)
 [![GitHub](https://img.shields.io/github/license/username/mat-calculator-app?style=for-the-badge)](LICENSE)
-[![Made with](https://img.shields.io/badge/Made%20with-Next.js%20%2B%20Tailwind-blue?style=for-the-badge)](https://nextjs.org/)
+[![Made with](https://img.shields.io/badge/Made%20with-Next.js%2015%20%2B%20Tailwind-blue?style=for-the-badge)](https://nextjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v22-green?style=for-the-badge)](https://nodejs.org/)
 
 ## ✨ Features
 
 ### 🎯 Professional Calculations
 - **5 calculation styles**: Proportional, Uniform, Talon, Panoramic, Portrait
-- **Precise calculations** to the tenth of a centimeter
+- **Millimeter precision** for professional accuracy
 - **Expert recommendations** for optimal framing
-- **Error handling** with input validation
+- **Error handling** with comprehensive input validation
 
 ### 🎨 Modern Interface
-- **Glassmorphism design** with transparency effects
-- **Full English interface**
-- **Responsive design** for mobile/desktop
-- **Smooth animations** and CSS transitions
+- **Clean, professional design** with clear visual boundaries
+- **Constrained layout** for better focus and readability
+- **Built-in Tailwind classes** for consistent styling
+- **Full English interface** with improved accessibility
+- **Responsive design** optimized for mobile and desktop
+- **Smooth animations** with native CSS transitions
 
 ### 📐 Visual Preview
-- **Real-time preview** of results
-- **Dimension annotations** on preview
-- **Accurate representation** of frame and mat
-- **Adaptive scaling** based on size
+- **Real-time preview** of frame and mat calculations
+- **Dimension annotations** with precise measurements
+- **Accurate representation** of proportions
+- **Adaptive scaling** based on actual dimensions
 
 ### 🚀 User Experience
-- **Auto-calculation** on input change
+- **Auto-calculation** with debounced input changes
 - **Keyboard shortcuts** (Ctrl+Enter, Escape)
-- **Preset dimensions** for common formats
-- **State persistence** with localStorage
+- **Quick preset dimensions** for common photo formats
+- **Clear section separation** with bordered containers
+- **Enhanced focus states** for better accessibility
 
 ## 🛠️ Technologies
 
-- **[Next.js 14](https://nextjs.org/)** - React framework with SSG support
-- **[React 18](https://reactjs.org/)** - Modern React with hooks
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
+- **[React 19](https://reactjs.org/)** - Modern React with latest features
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[next/font/google](https://nextjs.org/docs/pages/api-reference/components/font)** - Self-hosted Google Fonts
 - **[Lucide React](https://lucide.dev/)** - Beautiful icon library
-- **[PostCSS](https://postcss.org/)** - CSS transformations
+- **[TypeScript 5+](https://www.typescriptlang.org/)** - Type-safe development
 
 ## 📦 Installation
 
 ### Prerequisites
-- **Node.js** 18+ ([Download](https://nodejs.org/))
+- **Node.js** v22+ ([Download](https://nodejs.org/))
 - **npm** or **yarn**
 
 ### Local Installation
@@ -54,10 +59,13 @@
 git clone https://github.com/username/mat-calculator-app.git
 cd mat-calculator-app
 
+# Use Node.js v22 (with nvm)
+nvm use
+
 # Install dependencies
 npm install
 
-# Run in development mode
+# Run in development mode with Turbopack
 npm run dev
 ```
 
@@ -66,7 +74,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 ### Available Scripts
 
 ```bash
-# Development with hot reload
+# Development with hot reload and Turbopack
 npm run dev
 
 # Production build
@@ -75,11 +83,11 @@ npm run build
 # Start production server
 npm start
 
-# Export static files
-npm run export
-
 # Lint code
 npm run lint
+
+# Type checking
+npm run type-check
 ```
 
 ## 🚀 Deployment
@@ -89,7 +97,7 @@ npm run lint
 #### Option 1: Automatic Deployment
 1. Push code to GitHub
 2. Connect repository on [vercel.com](https://vercel.com)
-3. Deployment happens automatically
+3. Deployment happens automatically with Node.js v22
 
 #### Option 2: Vercel CLI
 ```bash
@@ -108,59 +116,48 @@ vercel --prod
 ```bash
 # Build for production
 npm run build
-npm run export
 
-# Deploy the 'out' folder to Netlify
-# Or connect GitHub repository directly
+# Deploy with static export
+# Netlify will automatically detect the build settings
 ```
 
-### Deploy to GitHub Pages
-
-```bash
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json scripts
-"scripts": {
-  "deploy": "npm run build && npm run export && gh-pages -d out"
-}
-
-# Deploy
-npm run deploy
-```
+### Environment Setup
+Ensure your deployment platform supports:
+- **Node.js v22**
+- **Static export** configuration
+- **Tailwind CSS v4** build process
 
 ## 📁 Project Structure
 
 ```
 mat-calculator-app/
 ├── 📁 app/
-│   ├── layout.tsx         # Root layout with metadata
+│   ├── layout.tsx         # Root layout with Inter font
 │   └── page.tsx           # Home page (App Router)
 ├── 📁 components/
-│   ├── MatCalculator.tsx  # Main calculator component
+│   ├── MatCalculator.tsx  # Main calculator with modern UI
 │   ├── MatPreview.tsx     # Visual preview component
 │   └── ResultsDisplay.tsx # Results display component
 ├── 📁 lib/
 │   └── calculator.ts      # Calculation logic (TypeScript)
 ├── 📁 styles/
-│   └── globals.css        # Global styles with Tailwind
-├── 📄 next.config.js        # Next.js configuration
-├── 📄 tsconfig.json         # TypeScript configuration
-├── 📄 package.json          # Dependencies and scripts
-├── 📄 tailwind.config.js    # Tailwind configuration
-├── 📄 postcss.config.js     # PostCSS configuration
-├── 📄 vercel.json           # Vercel deployment config
-├── 📄 .gitignore           # Git ignore rules
-└── 📄 README.md            # Documentation
+│   └── globals.css        # Minimal global styles
+├── 📄 .nvmrc              # Node.js version specification
+├── 📄 next.config.js      # Next.js configuration
+├── 📄 tsconfig.json       # TypeScript configuration
+├── 📄 package.json        # Dependencies and scripts
+├── 📄 tailwind.config.js  # Tailwind v4 configuration
+├── 📄 .gitignore          # Git ignore rules
+└── 📄 README.md           # Documentation
 ```
 
 ## 🎯 Usage
 
 ### Main Interface
-1. **Enter frame dimensions** (width × height in cm)
-2. **Enter photo dimensions** (width × height in cm)
+1. **Enter frame dimensions** (width × height in **mm**)
+2. **Enter photo dimensions** (width × height in **mm**)
 3. **Choose calculation style** from dropdown
-4. **Click "Calculate"** or use Ctrl+Enter
+4. **Results appear automatically** with visual preview
 
 ### Available Calculation Styles
 
@@ -169,56 +166,93 @@ mat-calculator-app/
 | **Proportional** | Equal margins on all sides |
 | **Uniform** | Average distribution of available space |
 | **Talon** | Larger bottom margin (classic style) |
-| **Panoramic** | Reduced horizontal margins |
-| **Portrait** | Reduced vertical margins |
+| **Panoramic** | Reduced horizontal margins for wide photos |
+| **Portrait** | Reduced vertical margins for tall photos |
 
 ### Keyboard Shortcuts
-- `Ctrl + Enter` : Calculate
-- `Escape` : Reset
+- `Ctrl + Enter` : Force calculate
+- `Escape` : Reset all fields
 
-### Quick Presets
-- **Photo 10×15** : Frame 20×25, Photo 10×15
-- **Photo 13×18** : Frame 23×28, Photo 13×18
-- **Photo 20×30** : Frame 30×40, Photo 20×30
-- **A4 Frame** : Frame 21×29.7, Photo 15×20
+### Quick Presets (in millimeters)
+- **Photo 10×15** : Frame 200×250mm, Photo 100×150mm
+- **Photo 13×18** : Frame 230×280mm, Photo 130×180mm
+- **Photo 20×30** : Frame 300×400mm, Photo 200×300mm
+- **A4 Frame** : Frame 210×297mm, Photo 150×200mm
 
 ## 🎨 Customization
 
-### Colors
-Modify colors in `tailwind.config.js`:
+### Design System
+The app uses a clean, professional design with:
+- **White backgrounds** with subtle borders
+- **Clear visual hierarchy** with proper spacing
+- **Color-coded sections** (blue for frame, green for photo, purple for style)
+- **Consistent button styling** with hover effects
+
+### Tailwind Configuration
+Modify the design in `tailwind.config.js`:
 
 ```javascript
-colors: {
-  primary: {
-    500: '#0ea5e9', // Main color
-    600: '#0284c7',
-    // ...
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          // Custom color palette
+        }
+      }
+    }
   }
 }
 ```
 
-### Calculation Styles
-Add new styles in `lib/calculator.js`:
+### Adding New Calculation Styles
+Extend the calculator in `lib/calculator.ts`:
 
-```javascript
-// Add a new calculation method
-calculateCustom(availableWidth, availableHeight) {
+```typescript
+calculateCustomStyle(frame: Dimensions, photo: Dimensions): MatDimensions {
   // Custom calculation logic
   return {
-    top: /* value */,
-    right: /* value */,
-    bottom: /* value */,
-    left: /* value */
+    top: number,
+    right: number,
+    bottom: number,
+    left: number
   };
 }
 ```
 
-### Component Styling
-Modify component styles in `styles/globals.css` or create new Tailwind classes.
+## 🔧 Development
+
+### Node.js Version Management
+This project uses Node.js v22. Use the `.nvmrc` file:
+
+```bash
+# Install and use correct Node version
+nvm install
+nvm use
+```
+
+### CSS Architecture
+- **Minimal global styles** in `globals.css`
+- **Built-in Tailwind classes** for all components
+- **No custom CSS utilities** for better maintainability
+- **Self-hosted fonts** via `next/font/google`
+
+### Component Guidelines
+- Use **semantic HTML** with proper accessibility
+- Implement **clear visual boundaries** between sections
+- Follow **consistent spacing** with Tailwind utilities
+- Ensure **responsive design** across all screen sizes
 
 ## 🐛 Troubleshooting
 
 ### Common Issues
+
+**Node Version Mismatch**
+```bash
+# Ensure you're using Node.js v22
+node --version
+nvm use  # If using nvm
+```
 
 **Build Error**
 ```bash
@@ -228,21 +262,14 @@ npm install
 npm run build
 ```
 
-**Styling Issues**
-```bash
-# Check Tailwind configuration
-npx tailwindcss -i ./styles/globals.css -o ./styles/output.css --watch
-```
+**Tailwind Styles Not Working**
+- Verify Tailwind v4 configuration
+- Check that class names are correctly spelled
+- Ensure no conflicting CSS
 
-**Module Not Found**
-- Check imports in component files
-- Ensure file paths are correct
-- Verify Next.js file-based routing
-
-**Deployment Issues**
-- Check `next.config.js` for export settings
-- Ensure all dependencies are in `package.json`
-- Verify build process completes successfully
+**Font Loading Issues**
+- Verify `next/font/google` import in `app/layout.tsx`
+- Check that fonts are properly applied to `<body>`
 
 ## 🤝 Contributing
 
@@ -253,11 +280,12 @@ npx tailwindcss -i ./styles/globals.css -o ./styles/output.css --watch
 5. Open a **Pull Request**
 
 ### Development Guidelines
-- Use **English** for all code and comments
-- Follow **React** and **Next.js** best practices
-- Test on **mobile and desktop**
-- Maintain **existing code style**
-- Add **JSDoc comments** for functions
+- Use **Node.js v22** as specified in `.nvmrc`
+- Follow **TypeScript best practices**
+- Use **built-in Tailwind classes** only
+- Test on **mobile and desktop** devices
+- Maintain **accessibility standards**
+- Add **proper TypeScript types** for new features
 
 ## 📄 License
 
@@ -266,7 +294,8 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ## 🙏 Acknowledgments
 
 - **[Next.js](https://nextjs.org/)** for the excellent React framework
-- **[Tailwind CSS](https://tailwindcss.com/)** for the utility-first CSS framework
+- **[Tailwind CSS](https://tailwindcss.com/)** for the utility-first approach
+- **[Vercel](https://vercel.com/)** for seamless deployment
 - **[Lucide](https://lucide.dev/)** for beautiful icons
 - **The framing community** for feedback and suggestions
 
@@ -281,9 +310,22 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 - [ ] **Print functionality** for calculations
 - [ ] **Save/load projects** feature
 - [ ] **Multiple mat layers** support
-- [ ] **Imperial units** (inches) support
+- [ ] **Imperial units** (inches) support alongside metric
 - [ ] **PWA capabilities** for offline use
+- [ ] **Semantic release** automation
 - [ ] **API integration** for frame suppliers
+- [ ] **Advanced calculations** for complex frames
+
+## 🆕 Recent Updates
+
+### v2.0.0 - Modern Redesign
+- ✅ **Millimeter precision** - Changed from cm to mm for professional accuracy
+- ✅ **Modern UI design** - Clean, professional interface with clear boundaries
+- ✅ **Node.js v22 support** - Latest LTS with performance improvements
+- ✅ **Tailwind CSS v4** - Updated to latest version with built-in classes only
+- ✅ **Enhanced accessibility** - Better focus states and semantic markup
+- ✅ **Self-hosted fonts** - Optimized font loading with next/font/google
+- ✅ **Improved responsiveness** - Better mobile and tablet experience
 
 ---
 
