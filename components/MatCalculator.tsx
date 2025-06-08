@@ -130,15 +130,15 @@ export default function MatCalculatorComponent() {
   }, [calculate])
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="glass mx-4 mt-4 mb-8 rounded-2xl">
-        <div className="container mx-auto px-6 py-6">
+      <header className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="text-3xl">🖼️</div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-800 text-shadow">
+                <h1 className="text-2xl font-bold text-gray-900">
                   Mat Calculator
                 </h1>
                 <p className="text-sm text-gray-600">
@@ -146,11 +146,11 @@ export default function MatCalculatorComponent() {
                 </p>
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-2 text-sm text-gray-600">
-              <span className="bg-primary-100 text-primary-700 px-2 py-1 rounded-full font-medium">
+            <div className="hidden md:flex items-center space-x-2 text-sm">
+              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">
                 Professional
               </span>
-              <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">
+              <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">
                 Free
               </span>
             </div>
@@ -159,15 +159,15 @@ export default function MatCalculatorComponent() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 pb-12">
+      <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           
           {/* Input Section */}
           <div className="lg:col-span-1 space-y-6">
             {/* Frame Dimensions */}
-            <section className="glass p-6 rounded-2xl">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <FrameIcon className="w-5 h-5 mr-2 text-primary-600" />
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center border-b border-gray-100 pb-3">
+                <FrameIcon className="w-5 h-5 mr-2 text-blue-600" />
                 Frame Dimensions
               </h2>
               <div className="space-y-4">
@@ -182,7 +182,7 @@ export default function MatCalculatorComponent() {
                     placeholder="e.g. 30"
                     value={frameWidth}
                     onChange={(e) => validateInput(e.target.value, setFrameWidth)}
-                    className="w-full px-4 py-3 input-glass rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
                   />
                 </div>
                 <div>
@@ -196,16 +196,16 @@ export default function MatCalculatorComponent() {
                     placeholder="e.g. 40"
                     value={frameHeight}
                     onChange={(e) => validateInput(e.target.value, setFrameHeight)}
-                    className="w-full px-4 py-3 input-glass rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
                   />
                 </div>
               </div>
             </section>
 
             {/* Photo Dimensions */}
-            <section className="glass p-6 rounded-2xl">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <Image className="w-5 h-5 mr-2 text-primary-600" />
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center border-b border-gray-100 pb-3">
+                <Image className="w-5 h-5 mr-2 text-green-600" />
                 Photo Dimensions
               </h2>
               <div className="space-y-4">
@@ -220,7 +220,7 @@ export default function MatCalculatorComponent() {
                     placeholder="e.g. 20"
                     value={photoWidth}
                     onChange={(e) => validateInput(e.target.value, setPhotoWidth)}
-                    className="w-full px-4 py-3 input-glass rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
                   />
                 </div>
                 <div>
@@ -234,22 +234,22 @@ export default function MatCalculatorComponent() {
                     placeholder="e.g. 30"
                     value={photoHeight}
                     onChange={(e) => validateInput(e.target.value, setPhotoHeight)}
-                    className="w-full px-4 py-3 input-glass rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
                   />
                 </div>
               </div>
             </section>
 
             {/* Style Selection */}
-            <section className="glass p-6 rounded-2xl">
-              <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                <Layers className="w-5 h-5 mr-2 text-primary-600" />
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center border-b border-gray-100 pb-3">
+                <Layers className="w-5 h-5 mr-2 text-purple-600" />
                 Calculation Style
               </h2>
               <select
                 value={style}
                 onChange={(e) => setStyle(e.target.value)}
-                className="w-full px-4 py-3 input-glass rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
               >
                 {CALCULATION_STYLES.map((styleOption) => (
                   <option key={styleOption.value} value={styleOption.value}>
@@ -257,36 +257,36 @@ export default function MatCalculatorComponent() {
                   </option>
                 ))}
               </select>
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="text-xs text-gray-500 mt-3 bg-gray-50 p-3 rounded-lg">
                 The "talon" style increases the bottom margin for a balanced visual effect
               </p>
             </section>
 
             {/* Presets */}
-            <section className="glass p-6 rounded-2xl">
-              <h3 className="text-md font-semibold text-gray-800 mb-3">Quick Presets</h3>
-              <div className="grid grid-cols-2 gap-2">
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <h3 className="text-md font-semibold text-gray-900 mb-4 border-b border-gray-100 pb-3">Quick Presets</h3>
+              <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={() => handlePreset('photo-10x15')}
-                  className="btn-secondary text-xs py-2"
+                  className="bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium px-4 py-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 text-xs"
                 >
                   Photo 10×15
                 </button>
                 <button
                   onClick={() => handlePreset('photo-13x18')}
-                  className="btn-secondary text-xs py-2"
+                  className="bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium px-4 py-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 text-xs"
                 >
                   Photo 13×18
                 </button>
                 <button
                   onClick={() => handlePreset('photo-20x30')}
-                  className="btn-secondary text-xs py-2"
+                  className="bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium px-4 py-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 text-xs"
                 >
                   Photo 20×30
                 </button>
                 <button
                   onClick={() => handlePreset('a4-frame')}
-                  className="btn-secondary text-xs py-2"
+                  className="bg-gray-50 hover:bg-gray-100 text-gray-700 font-medium px-4 py-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200 text-xs"
                 >
                   A4 Frame
                 </button>
@@ -295,18 +295,24 @@ export default function MatCalculatorComponent() {
 
             {/* Action Buttons */}
             <div className="flex space-x-3">
-              <button onClick={calculate} className="flex-1 btn-primary">
+              <button 
+                onClick={calculate} 
+                className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center"
+              >
                 <Calculator className="w-5 h-5 mr-2" />
                 Calculate
               </button>
-              <button onClick={handleReset} className="btn-secondary">
+              <button 
+                onClick={handleReset} 
+                className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-3 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200"
+              >
                 <RotateCcw className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="text-xs text-gray-500 text-center">
-              <kbd className="bg-gray-100 px-2 py-1 rounded text-xs">Ctrl + Enter</kbd> to calculate •{' '}
-              <kbd className="bg-gray-100 px-2 py-1 rounded text-xs">Esc</kbd> to reset
+            <div className="text-xs text-gray-500 text-center bg-gray-50 p-3 rounded-lg">
+              <kbd className="bg-white px-2 py-1 rounded border text-xs">Ctrl + Enter</kbd> to calculate •{' '}
+              <kbd className="bg-white px-2 py-1 rounded border text-xs">Esc</kbd> to reset
             </div>
           </div>
 
@@ -315,10 +321,10 @@ export default function MatCalculatorComponent() {
             
             {/* Error Display */}
             {error && (
-              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg animate-slide-up">
+              <div className="bg-red-50 border border-red-200 text-red-800 px-6 py-4 rounded-xl animate-pulse">
                 <div className="flex items-center">
-                  <AlertCircle className="w-5 h-5 mr-2" />
-                  {error}
+                  <AlertCircle className="w-5 h-5 mr-3 text-red-600" />
+                  <span className="font-medium">{error}</span>
                 </div>
               </div>
             )}
@@ -331,29 +337,29 @@ export default function MatCalculatorComponent() {
               </div>
             ) : (
               /* Info Section */
-              <section className="glass p-8 rounded-2xl text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-linear-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center">
-                  <Calculator className="w-10 h-10 text-primary-600" />
+              <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-8 text-center">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center">
+                  <Calculator className="w-10 h-10 text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
                   Professional Mat Calculator
                 </h2>
-                <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                <p className="text-gray-600 mb-8 max-w-md mx-auto">
                   Enter your frame and photo dimensions to get optimal mat dimensions
                   according to different framing styles.
                 </p>
                 <div className="grid md:grid-cols-3 gap-4 text-sm">
-                  <div className="bg-white/50 p-4 rounded-xl">
-                    <div className="font-semibold text-gray-800 mb-2">✨ 5 Styles Available</div>
-                    <div className="text-gray-600">Proportional, Uniform, Talon, Panoramic, Portrait</div>
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-4 rounded-xl">
+                    <div className="font-semibold text-blue-900 mb-2">✨ 5 Styles Available</div>
+                    <div className="text-blue-700">Proportional, Uniform, Talon, Panoramic, Portrait</div>
                   </div>
-                  <div className="bg-white/50 p-4 rounded-xl">
-                    <div className="font-semibold text-gray-800 mb-2">📏 Visual Preview</div>
-                    <div className="text-gray-600">Real-time visualization with annotations</div>
+                  <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 p-4 rounded-xl">
+                    <div className="font-semibold text-green-900 mb-2">📏 Visual Preview</div>
+                    <div className="text-green-700">Real-time visualization with annotations</div>
                   </div>
-                  <div className="bg-white/50 p-4 rounded-xl">
-                    <div className="font-semibold text-gray-800 mb-2">💡 Recommendations</div>
-                    <div className="text-gray-600">Expert advice for optimal framing</div>
+                  <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-4 rounded-xl">
+                    <div className="font-semibold text-purple-900 mb-2">💡 Recommendations</div>
+                    <div className="text-purple-700">Expert advice for optimal framing</div>
                   </div>
                 </div>
               </section>
@@ -363,8 +369,8 @@ export default function MatCalculatorComponent() {
       </main>
 
       {/* Footer */}
-      <footer className="glass mx-4 mb-4 rounded-2xl">
-        <div className="container mx-auto px-6 py-4">
+      <footer className="bg-white border-t border-gray-200 mt-12">
+        <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
             <div className="flex items-center space-x-4">
               <span>© 2024 Mat Calculator App</span>
