@@ -17,10 +17,10 @@ interface CalculationStyle {
 }
 
 const PRESETS: Record<string, Preset> = {
-  'photo-10x15': { frame: { width: 20, height: 25 }, photo: { width: 10, height: 15 } },
-  'photo-13x18': { frame: { width: 23, height: 28 }, photo: { width: 13, height: 18 } },
-  'photo-20x30': { frame: { width: 30, height: 40 }, photo: { width: 20, height: 30 } },
-  'a4-frame': { frame: { width: 21, height: 29.7 }, photo: { width: 15, height: 20 } }
+  'photo-10x15': { frame: { width: 200, height: 250 }, photo: { width: 100, height: 150 } },
+  'photo-13x18': { frame: { width: 230, height: 280 }, photo: { width: 130, height: 180 } },
+  'photo-20x30': { frame: { width: 300, height: 400 }, photo: { width: 200, height: 300 } },
+  'a4-frame': { frame: { width: 210, height: 297 }, photo: { width: 150, height: 200 } }
 }
 
 const CALCULATION_STYLES: CalculationStyle[] = [
@@ -173,13 +173,13 @@ export default function MatCalculatorComponent() {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Width (cm) <span className="text-red-500">*</span>
+                    Width (mm) <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
-                    step="0.1"
+                    step="1"
                     min="0"
-                    placeholder="e.g. 30"
+                    placeholder="e.g. 300"
                     value={frameWidth}
                     onChange={(e) => validateInput(e.target.value, setFrameWidth)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
@@ -187,13 +187,13 @@ export default function MatCalculatorComponent() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Height (cm) <span className="text-red-500">*</span>
+                    Height (mm) <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
-                    step="0.1"
+                    step="1"
                     min="0"
-                    placeholder="e.g. 40"
+                    placeholder="e.g. 400"
                     value={frameHeight}
                     onChange={(e) => validateInput(e.target.value, setFrameHeight)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
@@ -211,13 +211,13 @@ export default function MatCalculatorComponent() {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Width (cm) <span className="text-red-500">*</span>
+                    Width (mm) <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
-                    step="0.1"
+                    step="1"
                     min="0"
-                    placeholder="e.g. 20"
+                    placeholder="e.g. 200"
                     value={photoWidth}
                     onChange={(e) => validateInput(e.target.value, setPhotoWidth)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
@@ -225,13 +225,13 @@ export default function MatCalculatorComponent() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Height (cm) <span className="text-red-500">*</span>
+                    Height (mm) <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="number"
-                    step="0.1"
+                    step="1"
                     min="0"
-                    placeholder="e.g. 30"
+                    placeholder="e.g. 300"
                     value={photoHeight}
                     onChange={(e) => validateInput(e.target.value, setPhotoHeight)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 focus:bg-white transition-colors"
