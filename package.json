@@ -6,7 +6,7 @@
   "author": "Mat Calculator Team",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,17 +14,17 @@
   },
   "dependencies": {
     "lucide-react": "^0.294.0",
-    "next": "14.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "15.3.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.6",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.55.0",
-    "eslint-config-next": "14.0.4",
+    "eslint-config-next": "15.3.3",
     "postcss": "^8.4.32",
     "tailwindcss": "^4.1.8",
     "typescript": "^5.3.3"
@@ -37,5 +37,9 @@
     "nextjs",
     "typescript",
     "framing"
-  ]
+  ],
+  "overrides": {
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.6"
+  }
 }

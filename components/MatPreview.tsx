@@ -35,7 +35,7 @@ export default function MatPreview({ result, calculator }: MatPreviewProps) {
         >
           {/* Frame */}
           <div 
-            className="absolute inset-0 bg-gradient-to-br from-amber-800 to-amber-900 rounded-lg shadow-2xl" 
+            className="absolute inset-0 bg-linear-to-br from-amber-800 to-amber-900 rounded-lg shadow-2xl" 
             style={{
               width: `${frameWidth}px`,
               height: `${frameHeight}px`,

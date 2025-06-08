@@ -332,7 +332,7 @@ export default function MatCalculatorComponent() {
             ) : (
               /* Info Section */
               <section className="glass p-8 rounded-2xl text-center">
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center">
+                <div className="w-20 h-20 mx-auto mb-6 bg-linear-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center">
                   <Calculator className="w-10 h-10 text-primary-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">
