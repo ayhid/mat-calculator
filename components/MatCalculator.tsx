@@ -1,121 +1,133 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Calculator, RotateCcw, Image, FrameIcon, Layers, AlertCircle } from 'lucide-react';
-import { MatCalculator } from '../lib/calculator';
-import MatPreview from './MatPreview';
-import ResultsDisplay from './ResultsDisplay';
+'use client'
 
-const PRESETS = {
+import React, { useState, useEffect, useCallback } from 'react'
+import { Calculator, RotateCcw, Image, FrameIcon, Layers, AlertCircle } from 'lucide-react'
+import { MatCalculator } from '../lib/calculator'
+import MatPreview from './MatPreview'
+import ResultsDisplay from './ResultsDisplay'
+
+interface Preset {
+  frame: { width: number; height: number }
+  photo: { width: number; height: number }
+}
+
+interface CalculationStyle {
+  value: string
+  label: string
+}
+
+const PRESETS: Record<string, Preset> = {
   'photo-10x15': { frame: { width: 20, height: 25 }, photo: { width: 10, height: 15 } },
   'photo-13x18': { frame: { width: 23, height: 28 }, photo: { width: 13, height: 18 } },
   'photo-20x30': { frame: { width: 30, height: 40 }, photo: { width: 20, height: 30 } },
   'a4-frame': { frame: { width: 21, height: 29.7 }, photo: { width: 15, height: 20 } }
-};
+}
 
-const CALCULATION_STYLES = [
+const CALCULATION_STYLES: CalculationStyle[] = [
   { value: 'proportional', label: 'Proportional - Equal margins' },
   { value: 'uniform', label: 'Uniform - Average distribution' },
   { value: 'talon', label: 'Talon - Classic style' },
   { value: 'panoramic', label: 'Panoramic - Reduced horizontal margins' },
   { value: 'portrait', label: 'Portrait - Reduced vertical margins' }
-];
+]
 
 export default function MatCalculatorComponent() {
-  const [calculator] = useState(() => new MatCalculator());
-  const [frameWidth, setFrameWidth] = useState('');
-  const [frameHeight, setFrameHeight] = useState('');
-  const [photoWidth, setPhotoWidth] = useState('');
-  const [photoHeight, setPhotoHeight] = useState('');
-  const [style, setStyle] = useState('proportional');
-  const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
-  const [showResults, setShowResults] = useState(false);
+  const [calculator] = useState(() => new MatCalculator())
+  const [frameWidth, setFrameWidth] = useState('')
+  const [frameHeight, setFrameHeight] = useState('')
+  const [photoWidth, setPhotoWidth] = useState('')
+  const [photoHeight, setPhotoHeight] = useState('')
+  const [style, setStyle] = useState('proportional')
+  const [result, setResult] = useState<any>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [showResults, setShowResults] = useState(false)
 
   // Auto-calculate with debounce
-  const debounce = (func, wait) => {
-    let timeout;
-    return function executedFunction(...args) {
+  const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout
+    return function executedFunction(...args: any[]) {
       const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
+        clearTimeout(timeout)
+        func(...args)
+      }
+      clearTimeout(timeout)
+      timeout = setTimeout(later, wait)
+    }
+  }
 
   const calculate = useCallback(() => {
-    setError(null);
+    setError(null)
     
     if (!frameWidth || !frameHeight || !photoWidth || !photoHeight) {
-      setShowResults(false);
-      return;
+      setShowResults(false)
+      return
     }
 
-    const frame = { width: frameWidth, height: frameHeight };
-    const photo = { width: photoWidth, height: photoHeight };
+    const frame = { width: frameWidth, height: frameHeight }
+    const photo = { width: photoWidth, height: photoHeight }
     
-    const calculationResult = calculator.calculate(frame, photo, style);
+    const calculationResult = calculator.calculate(frame, photo, style)
     
     if (calculationResult.error) {
-      setError(calculationResult.error);
-      setShowResults(false);
-      return;
+      setError(calculationResult.error)
+      setShowResults(false)
+      return
     }
     
-    setResult(calculationResult);
-    setShowResults(true);
-  }, [calculator, frameWidth, frameHeight, photoWidth, photoHeight, style]);
+    setResult(calculationResult)
+    setShowResults(true)
+  }, [calculator, frameWidth, frameHeight, photoWidth, photoHeight, style])
 
-  const debouncedCalculate = useCallback(debounce(calculate, 300), [calculate]);
+  const debouncedCalculate = useCallback(debounce(calculate, 300), [calculate])
 
   useEffect(() => {
-    debouncedCalculate();
-  }, [frameWidth, frameHeight, photoWidth, photoHeight, style, debouncedCalculate]);
+    debouncedCalculate()
+  }, [frameWidth, frameHeight, photoWidth, photoHeight, style, debouncedCalculate])
 
   const handleReset = () => {
-    setFrameWidth('');
-    setFrameHeight('');
-    setPhotoWidth('');
-    setPhotoHeight('');
-    setStyle('proportional');
-    setResult(null);
-    setError(null);
-    setShowResults(false);
-  };
+    setFrameWidth('')
+    setFrameHeight('')
+    setPhotoWidth('')
+    setPhotoHeight('')
+    setStyle('proportional')
+    setResult(null)
+    setError(null)
+    setShowResults(false)
+  }
 
-  const handlePreset = (presetKey) => {
-    const preset = PRESETS[presetKey];
+  const handlePreset = (presetKey: string) => {
+    const preset = PRESETS[presetKey]
     if (preset) {
-      setFrameWidth(preset.frame.width.toString());
-      setFrameHeight(preset.frame.height.toString());
-      setPhotoWidth(preset.photo.width.toString());
-      setPhotoHeight(preset.photo.height.toString());
+      setFrameWidth(preset.frame.width.toString())
+      setFrameHeight(preset.frame.height.toString())
+      setPhotoWidth(preset.photo.width.toString())
+      setPhotoHeight(preset.photo.height.toString())
     }
-  };
+  }
 
-  const validateInput = (value, setter) => {
-    const numValue = parseFloat(value);
+  const validateInput = (value: string, setter: (value: string) => void) => {
+    const numValue = parseFloat(value)
     if (value === '' || (!isNaN(numValue) && numValue >= 0)) {
-      setter(value);
+      setter(value)
     }
-  };
+  }
 
   // Keyboard shortcuts
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        e.preventDefault();
-        calculate();
+        e.preventDefault()
+        calculate()
       }
       if (e.key === 'Escape') {
-        e.preventDefault();
-        handleReset();
+        e.preventDefault()
+        handleReset()
       }
-    };
+    }
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [calculate]);
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [calculate])
 
   return (
     <div className="min-h-screen">
@@ -366,6 +378,6 @@ export default function MatCalculatorComponent() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
 

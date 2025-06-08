@@ -1,8 +1,16 @@
-import React from 'react';
-import { BarChart3 } from 'lucide-react';
+'use client'
 
-export default function ResultsDisplay({ result, calculator }) {
-  const formatted = calculator.formatDimensions(result);
+import React from 'react'
+import { BarChart3 } from 'lucide-react'
+import { MatCalculator } from '../lib/calculator'
+
+interface ResultsDisplayProps {
+  result: any
+  calculator: MatCalculator
+}
+
+export default function ResultsDisplay({ result, calculator }: ResultsDisplayProps) {
+  const formatted = calculator.formatDimensions(result)
 
   return (
     <div className="glass p-6 rounded-2xl">
@@ -41,7 +49,7 @@ export default function ResultsDisplay({ result, calculator }) {
       {result.recommendations && result.recommendations.length > 0 && (
         <div className="space-y-2">
           <h3 className="text-md font-semibold text-gray-800 mb-3">Recommendations</h3>
-          {result.recommendations.map((recommendation, index) => (
+          {result.recommendations.map((recommendation: string, index: number) => (
             <div key={index} className="glass p-3 rounded-lg text-sm text-gray-700 animate-slide-up">
               {recommendation}
             </div>
@@ -49,6 +57,6 @@ export default function ResultsDisplay({ result, calculator }) {
         </div>
       )}
     </div>
-  );
+  )
 }
 

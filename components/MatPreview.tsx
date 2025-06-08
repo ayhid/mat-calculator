@@ -1,15 +1,23 @@
-import React from 'react';
+'use client'
 
-export default function MatPreview({ result, calculator }) {
-  const scale = 0.8; // Scale for preview
-  const frameWidth = result.frame.width * scale;
-  const frameHeight = result.frame.height * scale;
-  const photoWidth = result.photo.width * scale;
-  const photoHeight = result.photo.height * scale;
+import React from 'react'
+import { MatCalculator } from '../lib/calculator'
+
+interface MatPreviewProps {
+  result: any
+  calculator: MatCalculator
+}
+
+export default function MatPreview({ result, calculator }: MatPreviewProps) {
+  const scale = 0.8 // Scale for preview
+  const frameWidth = result.frame.width * scale
+  const frameHeight = result.frame.height * scale
+  const photoWidth = result.photo.width * scale
+  const photoHeight = result.photo.height * scale
   
-  const formatted = calculator.formatDimensions(result);
-  const topMargin = formatted.top * scale;
-  const leftMargin = formatted.left * scale;
+  const formatted = calculator.formatDimensions(result)
+  const topMargin = formatted.top * scale
+  const leftMargin = formatted.left * scale
 
   return (
     <div className="glass p-6 rounded-2xl">
@@ -94,6 +102,6 @@ export default function MatPreview({ result, calculator }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 

@@ -133,18 +133,19 @@ npm run deploy
 
 ```
 mat-calculator-app/
+├── 📁 app/
+│   ├── layout.tsx         # Root layout with metadata
+│   └── page.tsx           # Home page (App Router)
 ├── 📁 components/
-│   ├── MatCalculator.js    # Main calculator component
-│   ├── MatPreview.js       # Visual preview component
-│   └── ResultsDisplay.js   # Results display component
+│   ├── MatCalculator.tsx  # Main calculator component
+│   ├── MatPreview.tsx     # Visual preview component
+│   └── ResultsDisplay.tsx # Results display component
 ├── 📁 lib/
-│   └── calculator.js       # Calculation logic
-├── 📁 pages/
-│   ├── _app.js            # Next.js app wrapper
-│   └── index.js           # Home page
+│   └── calculator.ts      # Calculation logic (TypeScript)
 ├── 📁 styles/
 │   └── globals.css        # Global styles with Tailwind
 ├── 📄 next.config.js        # Next.js configuration
+├── 📄 tsconfig.json         # TypeScript configuration
 ├── 📄 package.json          # Dependencies and scripts
 ├── 📄 tailwind.config.js    # Tailwind configuration
 ├── 📄 postcss.config.js     # PostCSS configuration
