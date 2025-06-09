@@ -48,10 +48,10 @@ export class MatCalculator {
 
   /**
    * Calculate mat dimensions based on the selected style
-   * @param frame - Frame dimensions {width, height}
-   * @param photo - Photo dimensions {width, height}
+   * @param frame - Interior frame dimensions {width, height} in mm
+   * @param photo - Photo dimensions {width, height} in mm
    * @param style - Calculation style
-   * @returns Mat dimensions
+   * @returns Mat dimensions with validation
    */
   calculate(frame: FrameInput, photo: PhotoInput, style: string): CalculationResult {
     const frameWidth = parseFloat(frame.width.toString()) || 0
@@ -66,7 +66,7 @@ export class MatCalculator {
     if (photoWidth >= frameWidth || photoHeight >= frameHeight) {
       return {
         ...this.getEmptyResult(),
-        error: 'Photo is too large for the frame'
+        error: 'Photo is too large for the frame interior'
       }
     }
 
@@ -222,14 +222,31 @@ export class MatCalculator {
   }
 
   /**
-   * Format dimensions for display
+   * Format dimensions for display with custom rounding
+   * Rounds to nearest integer: >0.5 rounds up, <0.5 rounds down
    */
   formatDimensions(dimensions: MatDimensions): MatDimensions {
     return {
-      top: Math.round(dimensions.top * 10) / 10,
-      right: Math.round(dimensions.right * 10) / 10,
-      bottom: Math.round(dimensions.bottom * 10) / 10,
-      left: Math.round(dimensions.left * 10) / 10
+      top: this.customRound(dimensions.top),
+      right: this.customRound(dimensions.right),
+      bottom: this.customRound(dimensions.bottom),
+      left: this.customRound(dimensions.left)
+    }
+  }
+
+  /**
+   * Custom rounding logic: >0.5 rounds up, <0.5 rounds down, =0.5 rounds up
+   */
+  private customRound(value: number): number {
+    const decimalPart = value - Math.floor(value)
+    
+    if (decimalPart > 0.5) {
+      return Math.ceil(value)
+    } else if (decimalPart < 0.5) {
+      return Math.floor(value)
+    } else {
+      // Exactly 0.5 - round up
+      return Math.ceil(value)
     }
   }
 }

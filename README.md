@@ -138,6 +138,8 @@ mat-calculator-app/
 │   ├── MatCalculator.tsx  # Main calculator with modern UI
 │   ├── MatPreview.tsx     # Visual preview component
 │   └── ResultsDisplay.tsx # Results display component
+├── 📁 docs/
+│   └── CALCULATION_METHODS.md # Detailed calculation documentation
 ├── 📁 lib/
 │   └── calculator.ts      # Calculation logic (TypeScript)
 ├── 📁 styles/
@@ -168,6 +170,8 @@ mat-calculator-app/
 | **Talon** | Larger bottom margin (classic style) |
 | **Panoramic** | Reduced horizontal margins for wide photos |
 | **Portrait** | Reduced vertical margins for tall photos |
+
+> 📚 **Detailed Documentation**: See [Calculation Methods Guide](docs/CALCULATION_METHODS.md) for comprehensive formulas, examples, and best practices.
 
 ### Keyboard Shortcuts
 - `Ctrl + Enter` : Force calculate
